@@ -85,21 +85,21 @@
         <div class="lift_skill">
          <h4>web design</h4>
          <ul>
-           <li></li>
-           <li></li>
-           <li></li>
+           <li class="pf_gage photoshop" data-rel="90"></li>
+           <li class="pf_gage illustrator" data-rel="70"></li>
+           <li class="pf_gage indesign" data-rel="50"></li>
          </ul>
         </div>
         <div class="center_skill">
          <h4>web publishing</h4>
           <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li class="pf_gage" data-rel="90"></li>
+            <li class="pf_gage" data-rel="50"></li >
+            <li class="pf_gage" data-rel="30"></li >
+            <li class="pf_gage" data-rel="60"></li>
+            <li class="pf_gage" data-rel="77"></li>
+            <li class="pf_gage" data-rel="52"></li>
+            <li class="pf_gage" data-rel="10"></li>
           </ul>
         </div>
         <div class="right_skill">
@@ -123,13 +123,84 @@
         </div>
     </section>
  </main>
- <footer id="footBox" class="scroll"></footer>
+ <footer id="footBox" class="scroll">
+    <div id="circlel"></div>
+    <div id="shadowring"></div>
+     <div id="circle2"></div>
+     <!-- <canvas width="200" height="200" id="counter"></canvas> --> 
+     <div class="myCount">
+       <canvas id="circle" width="300" height="300"></canvas>
+     </div>
+ </footer>
     
    
 </div>
 <!-- script ======================================= -->
-<script src="../js/base/jquery-3.4.1.min.js"></script>
+<script src="../js/base/jquery-3.4.1.min.js"></script> 
 <script src="../js/base/jquery-ui.min.js"></script>
-<!-- <script src="../js/src/jq_sub_01.js"></script> -->
+<!-- <script src="../js/src/jq_mydong.js"></script> -->
+<script>
+    // const canvas = document.querySelector('#circle');
+    const pfGage = document.querySelectorAll('.pf_gage');
+    const gageRel = [];
+    // const pfGage = $('.pf_gage');
+
+    let n = 50;
+    // console.log(pfGage);
+    for(let i=0; i<pfGage.length; i++){
+        pfGage[i].innerHTML = '<canvas width="300" height="300"></canvas>';
+        gageRel[i] =  pfGage[i].getAttribute('data-rel');
+    }
+
+    const myGage = function (canvas, n){
+        canvas.style = "transform:rotate(-90deg)";
+        const context = canvas.getContext('2d');
+        const x = canvas.width  / 2;
+        const y = canvas.height / 2;
+        const ra = 100;
+
+         // 시작값 
+        const st = 2 * Math.PI;
+        const startAngle = st;
+
+        // 실제 값
+        let endAngle = function(n){
+            if(n == 100){ n=0; }else if( n == 0) { n=100 }
+            let myper = 3.6 * n;
+            let rel = st * (myper / 360 );    // 45도당 : 0.5 씩 처리
+            return rel;
+        };
+        endAngle(50);
+
+        let counterClockwis =false;
+        context.beginPath();
+        context.arc(x, y, ra, startAngle, endAngle, counterClockwis);
+        context.lineWidth = 25;
+        context.strokeStyle = '#333';
+        context.stroke();
+
+        
+        // let k=0, go;
+        // const letsGo = (function(){
+        //     go = setInterval(function(){
+        //         k++;
+        //         if(k < n){ endAngle(n); 
+        //             context.arc(x, y, ra, startAngle, endAngle, counterClockwis);
+        //         }else{ clearInterval(go); }
+        //         console.log(endAngle);
+        //     },100);
+        // })();
+        
+    };
+    
+    let canvas;
+    for(let i=0; i<pfGage.length; i++){
+        const canvas =  pfGage[i].childNodes[0];
+        myGage(canvas, gageRel[i]);
+    // console.log(canvas)
+    }
+    
+
+</script>
 </body>
 </html>
