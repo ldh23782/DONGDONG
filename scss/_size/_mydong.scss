@@ -1,36 +1,22 @@
 #wrap{width: 100%; height: auto; margin: 0; padding: 0; background: #e75c3c;}
 #headBox{position: relative; width: 100%;height: 100vh; background-color: #000;}
-.text{position: absolute; width: 50vw;height: 50vh;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-p.typing-txt{
-    position:relative;
-    display: inline-block;
-    overflow: hidden; font-size: 70px; color: #fff;
-    animation: typingAni 4s steps(30, end) 1;
-  }
-  p.typing-txt::after{
-    position:absolute; 
-    display:block;
-    content:""; 
-    width: 20px; 
-    height: 13px;
-    top : 3px;
-    right:0; 
-    border-right: 1px solid #000;
-    animation: cursor 0.5s step-end infinite;
-  }
-  @keyframes typingAni {
-    0%{width:0%}
-    100%{width: 150px};
-  }
-  @keyframes cursor{
-    0%{opacity:0;}
-    50%{opacity:1;}
-    100%{opacity:0;}
-  }
-}
+#textBox{width: 100%;height: 200px; margin: auto; padding-top: 35vh;text-align: center;
+.typing{ font-size: 60px; color:#fff; 
+         display: inline-block; 
+          animation-name: cursor; 
+          animation-duration: 0.8s; 
+          animation-iteration-count: infinite; 
+        } 
+        @keyframes cursor{ 
+          0%{border-right: 1px solid #fff} 
+          50%{border-right: 1px solid #000} 
+          100%{border-right: 1px solid #fff} 
+        }}
+
+
+
+
+
 //텍스트 효과
 .middle{
     position: absolute;
@@ -90,26 +76,27 @@ p.typing-txt{
 >dt{float: left; margin-left: 15px; width: 90px; font-weight: bold; font-size: 18px;}
 >dd{float: left; margin-left: 20px; font-size: 15px;}
 }}}
-.skill{position: relative; width: 100%;height: 100vh; background-color: #faf;
+.skill{position: relative; width: 100%;height: 100vh;  background-color: #fa1c;
+.my_can{width: 130px;height: 130px;}
 >h3{ font-size: 80px;font-weight: bold; }
-.lift_skill{float: left; width: 30%; height: 100%; background-color: #313;
+.lift_skill{float: left; width: 30%; height: auto; 
 >h4{font-size: 30px; text-align: center; box-sizing: border-box; padding: 1rem;}
 >ul{width: 100%; height: auto;
->li{width: 130px;height: 130px; margin: auto; margin-top:30px; background-color: #fff;}}
+>li{width: 130px;height: 170px; margin: auto; }}
 }
-.center_skill{float: left; width:40%; height: 100%; background-color: #9aa;
+.center_skill{float: left; width:40%; height: auto; 
 >h4{font-size: 30px; text-align: center; box-sizing: border-box; padding: 1rem;}
 >ul{width: 85%; height: auto; margin: auto; 
->li{float: left; width: 130px; height: 130px;margin-top: 30px; margin-right: 30px; background-color: #fff;
+>li{float: left; width: 130px; height: 150px;margin-top: 30px; margin-right: 30px; 
 
 }}}
-.right_skill{float: left; width: 30%; height: 100%; background-color: #5f3;
+.right_skill{float: left; width: 30%; height: auto; 
 >h4{font-size: 30px; text-align: center; box-sizing: border-box; padding: 1rem;}
 >ul{width: 100%; height: auto;
->li{width: 130px;height: 130px; margin: auto;margin-top: 30px; background-color: #fff;}}}
+>li{width: 130px;height: 150px; margin: auto;margin-top: 30px; }}}
 
 }//skill
-.portfolio{position: relative; width: 100%;height: 100vh; background-color: #514;
+.portfolio{position: relative; width: 100%;height: 100vh; background-color: #12850C;
 >h3{font-size: 80px; font-weight: bold; }}
 #footBox{width: 100%; height: 100px;}
 
